@@ -1,0 +1,14 @@
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.AssemblyInfoInputs.cache
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.AssemblyInfo.cs
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.csproj.CoreCompileInputs.cache
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\bin\Debug\net8.0\login&Registration.exe
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\bin\Debug\net8.0\login&Registration.deps.json
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\bin\Debug\net8.0\login&Registration.runtimeconfig.json
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\bin\Debug\net8.0\login&Registration.dll
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\bin\Debug\net8.0\login&Registration.pdb
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.dll
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\refint\login&Registration.dll
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.pdb
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.genruntimeconfig.cache
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\ref\login&Registration.dll
