@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace login_Registration
 {
-    internal class userManager
+    public class userManager
     {
         private List<User> _users = new List<User>();
+        public Dashboard dashboard = new Dashboard(@"C:\Projects\Cohort Exercises\week_2_Challenges\books.txt");
 
         private User _isLoggedIn;
         private string _filePath;
@@ -72,10 +73,19 @@ namespace login_Registration
         public void loadDashboard() 
         {
             Console.WriteLine("===== Dashboard =====");
-
-            if (_isLoggedIn != null && _isLoggedIn.role == "admin")
+            
+            if (_isLoggedIn != null && _isLoggedIn.role == "user" )
             {
-                Console.WriteLine($"Welcome, {_isLoggedIn.username}!");
+                Console.WriteLine($"Welcome, {_isLoggedIn.username}! ");
+
+                //view dashboard according to role
+                dashboard.ShowBooks();
+            }
+
+            if (_isLoggedIn.role == "admin") 
+            {
+                Console.WriteLine($"Welcome!, {_isLoggedIn.username}, you are logged in as Admin");
+                dashboard.AddBook();
             }
             else
             {
@@ -87,6 +97,7 @@ namespace login_Registration
         //load users
         public void LoadUsers()
         {
+            //file exists
             if (File.Exists(_filePath))
             {
                 try
@@ -98,9 +109,11 @@ namespace login_Registration
                         string[] parts = line.Split(':');
                         if (parts.Length == 5)
                         {
+                            string storedId = parts[0].Trim();
                             string storedUsername = parts[1].Trim();
                             string storedPassword = parts[2].Trim();
-                            string storedEmail = parts[3].Trim();   
+                            string storedEmail = parts[3].Trim();  
+                            string storedRole = parts[4].Trim();
                             _users.Add(new User(
                                 storedUsername,
                                 storedPassword,
@@ -113,8 +126,19 @@ namespace login_Registration
                 {
                     Console.WriteLine($"Error reading from file: {ex.Message}");
                 }
+            } 
+            else 
+            {
+                //  file does not exist
+                if (!File.Exists(_filePath))
+                {
+                    // If not, create the file
+                    using (File.Create(_filePath))
+                    {
+                        Console.WriteLine($"File '{_filePath}' created.");
+                    }
+                }
             }
-
         }
 
         //save users to file

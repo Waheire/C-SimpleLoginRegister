@@ -13,8 +13,15 @@ namespace login_Registration
         public List<Book> Books = new List<Book>();
         private string _filePath;
 
+
+        public Dashboard(string filePath)
+        {
+            _filePath = filePath;
+            LoadBooks();
+        }
+
         //add a book
-        public void addBook() 
+        public void AddBook() 
         {
             Console.WriteLine("===== Add Book =====");
             Console.Write("Enter Book Title: ");
@@ -27,7 +34,7 @@ namespace login_Registration
 
             Book newBook = new Book(bookTitle, bookDescription, BookAuthor);
 
-            //check if file exists 
+            // book file exists 
             if (File.Exists(_filePath))
             {
                 try
@@ -39,7 +46,7 @@ namespace login_Registration
                         string[] parts = line.Split(':');
                         if (parts.Length == 4)
                         {
-                            string storedId = parts[0].Trim();
+                          
                             string storedTitle = parts[1].Trim();
                             string storedDescription = parts[2].Trim();
                             string storedAuthor = parts[3].Trim();
@@ -48,10 +55,6 @@ namespace login_Registration
                                 storedDescription,
                                 storedAuthor
                                 ));
-                            //check if book exists
-                            if (Books.FirstOrDefault().bookId == storedId) { 
-
-                            }
                         }
                     }
                 }
@@ -60,11 +63,22 @@ namespace login_Registration
                     Console.WriteLine($"Error reading from file: {ex.Message}");
                 }
             }
+            else 
+            {
+                //  file does not exist
+                if (!File.Exists(_filePath))
+                {
+                    // create the file
+                    using (File.Create(_filePath))
+                    {
+                        Console.WriteLine($"File '{_filePath}' created.");
+                    }
+                }
+            }
 
             //save book information 
             Books.Add(newBook);
             saveBook();
-
             Console.WriteLine("Book Registered successfully!");
         }
 
@@ -86,10 +100,60 @@ namespace login_Registration
             }
         }
 
-        //show books
+        //load books
+        public void LoadBooks()
+        {
+            //file exists
+            if (File.Exists(_filePath))
+            {
+                try
+                {
+                    string[] lines = File.ReadAllLines(_filePath);
+                    foreach (var line in lines)
+                    {
+                        string[] parts = line.Split(':');
+                        if (parts.Length == 4)
+                        {
+                            string storedId = parts[0].Trim();
+                            string storedTitle = parts[1].Trim();
+                            string storedDescription = parts[2].Trim();
+                            string storedAuthor = parts[3].Trim();
+                            Books.Add(new Book(
+                                storedTitle,
+                                storedDescription,
+                                storedAuthor
+                                ));
+                        }
+                    }
+                }
+                catch (IOException ex)
+                {
+                    Console.WriteLine($"Error reading from file: {ex.Message}");
+                }
+            }
+            else
+            {
+                //  file does not exist
+                if (!File.Exists(_filePath))
+                {
+                    // If not, create the file
+                    using (File.Create(_filePath))
+                    {
+                        Console.WriteLine($"File '{_filePath}' created.");
+                    }
+                }
+            }
+        }
 
+        ////show books
+        public void ShowBooks() 
+        {
+            Console.WriteLine("===== Books Available  =====");
 
-
-
+            foreach (var book in Books) 
+            {
+                Console.WriteLine($"ID: {book.bookId},\n Title: {book.Title},\n Description: {book.Description},\n Author: {book.Author} \n");
+            }
+        }
     }
 }

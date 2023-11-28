@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using login_Registration;
 
-userManager userManager = new userManager(@"C:\Credentials\credentials.txt");
+userManager userManager = new userManager(@"C:\Projects\Cohort Exercises\week_2_Challenges\credentials.txt");
 
 while (true)
 {
