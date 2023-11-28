@@ -12,3 +12,4 @@ C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8
 C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.pdb
 C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.genruntimeconfig.cache
 C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\ref\login&Registration.dll
+C:\Projects\Cohort Exercises\week_2_Challenges\login&Registration\obj\Debug\net8.0\login&Registration.sourcelink.json
